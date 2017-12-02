@@ -1,9 +1,11 @@
 ﻿using Analytic.Logic;
+using Analytic.Logic.Mediator;
 using Analytic.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +26,13 @@ namespace Analytic.Main
             base.OnStartup(e);
             GlobalPageContainer.AddPage(new HomePage());
             GlobalPageContainer.AddPage(new CpuPage());
+
+            Mediator.Register("Log", Log);
+        }
+
+        private void Log(object obj)
+        {
+            Debug.WriteLine(obj);
         }
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

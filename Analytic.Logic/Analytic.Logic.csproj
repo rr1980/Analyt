@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Commands\AwaitableDelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Mediator\EventArgs.cs" />
     <Compile Include="GlobalPageContainer.cs" />
+    <Compile Include="Mediator\Mediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,7 @@ namespace Analytic.Logic.Commands
         private readonly Func<T, bool> _canExecuteMethod;
         private readonly Action<T> _executeMethod;
         private bool _isExecuting;
+        private event EventHandler CanExecuteChangedInternal;
 
         public DelegateCommand(Action<T> executeMethod)
             : this(executeMethod, null)
@@ -47,10 +48,12 @@ namespace Analytic.Logic.Commands
             add
             {
                 CommandManager.RequerySuggested += value;
+                CanExecuteChangedInternal += value;
             }
             remove
             {
                 CommandManager.RequerySuggested -= value;
+                CanExecuteChangedInternal -= value;
             }
         }
 

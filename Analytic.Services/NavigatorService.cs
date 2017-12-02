@@ -1,4 +1,5 @@
 ﻿using Analytic.Logic;
+using Analytic.Logic.Mediator;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ namespace Analytic.Services
 
         public static Task GoPage(Page page, string pageName)
         {
+            Mediator.Send("Log", "Execute GoPage: "+ pageName);
             var _p = GlobalPageContainer.GetPage(pageName);
             var _navigationService = NavigationService.GetNavigationService(page);
             navigate(_navigationService, _p,  pageName);
