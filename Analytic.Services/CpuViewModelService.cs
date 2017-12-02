@@ -1,12 +1,20 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Analytic.Services
 {
     public static class CpuViewModelService
     {
-        public static async Task TakeTime(int timeInMilliSec)
+        public static async Task TakeTime(string timeInMilliSecString)
         {
-            await Task.Delay(timeInMilliSec);
+            if (Int32.TryParse(timeInMilliSecString, out var timeInMilliSec))
+            {
+                await Task.Delay(timeInMilliSec);
+            }
+            else
+            {
+                throw new FormatException("'" + timeInMilliSecString + "' ist kein gültiges 'Int32' Format!");
+            }
         }
     }
 }

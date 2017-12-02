@@ -17,9 +17,20 @@ namespace Analytic.Main
     {
         public App()
         {
-            GlobalPageContainer.AddPage(new HomePage());
+        }
 
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            GlobalPageContainer.AddPage(new HomePage());
             GlobalPageContainer.AddPage(new CpuPage());
+        }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            ExceptionWindow exWin = new ExceptionWindow(e.Exception);
+            exWin.ShowDialog();
+            e.Handled = true;
         }
     }
 }
