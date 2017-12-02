@@ -1,20 +1,18 @@
-﻿using Analytic.Logic;
-using System;
+﻿using Analytic.Logic.Commands;
+using Analytic.Services;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace Analytic.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
+        private readonly Page _page;
+        public AwaitableDelegateCommand GoCpuPageCommand { get; set; }
+
         public HomeViewModel(Page page)
         {
-
-        }
-
-        public AwaitableDelegateCommand GoCpuPageCommand
-        {
-            get; set;
+            _page = page;
+            GoCpuPageCommand = new AwaitableDelegateCommand(() => NavigatorService.GoPage(_page, "CpuPage"));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Analytic.Logic;
+using Analytic.Logic.Commands;
 using Analytic.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,16 +27,7 @@ namespace Analytic.Views
         {
             InitializeComponent();
             System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
-            var vm = new CpuViewModel(this);
-
-            vm.GoHomePageCommand = new AwaitableDelegateCommand(() =>
-            {
-                HomePage page = new HomePage();
-                this.NavigationService.Navigate(page);
-                return Task.FromResult(0);
-            });
-
-            DataContext = vm;
+            DataContext = new CpuViewModel(this);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Analytic.Logic
+namespace Analytic.Logic.Commands
 {
     public class DelegateCommand : DelegateCommand<object>
     {

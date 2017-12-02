@@ -104,6 +104,10 @@
       <Project>{488c7463-56a4-401e-8294-dc06551d7813}</Project>
       <Name>Analytic.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Analytic.Logic\Analytic.Logic.csproj">
+      <Project>{1873581d-61f5-4a9b-99c6-871a4c59ab2a}</Project>
+      <Name>Analytic.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Analytic.Models\Analytic.Models.csproj">
       <Project>{d7df774a-49a8-48b0-8fb7-1afe48925169}</Project>
       <Name>Analytic.Models</Name>

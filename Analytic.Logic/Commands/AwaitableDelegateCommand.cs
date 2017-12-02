@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Analytic.Logic
+namespace Analytic.Logic.Commands
 {
     public class AwaitableDelegateCommand<T> : IAsyncCommand<T>, ICommand
     {

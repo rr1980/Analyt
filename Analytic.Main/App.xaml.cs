@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Analytic.Logic;
+using Analytic.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,11 @@ namespace Analytic.Main
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            GlobalPageContainer.AddPage(new HomePage());
+
+            GlobalPageContainer.AddPage(new CpuPage());
+        }
     }
 }
