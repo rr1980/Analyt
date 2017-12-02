@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Ui.Desktop
+namespace Analytic.Main
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"

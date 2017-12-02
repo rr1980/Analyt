@@ -4,15 +4,30 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{623B9B66-9C4A-415C-B7A3-5590858BDBDB}</ProjectGuid>
+    <ProjectGuid>{0B8BA5BE-4D23-4725-9830-239F12BAF83A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ui.Desktop</RootNamespace>
-    <AssemblyName>Ui.Desktop</AssemblyName>
+    <RootNamespace>Analytic.Main</RootNamespace>
+    <AssemblyName>Analytic.Main</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,18 +67,9 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -92,6 +98,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Analytic.Common\Analytic.Common.csproj">
+      <Project>{488c7463-56a4-401e-8294-dc06551d7813}</Project>
+      <Name>Analytic.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytic.Models\Analytic.Models.csproj">
+      <Project>{d7df774a-49a8-48b0-8fb7-1afe48925169}</Project>
+      <Name>Analytic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytic.Services\Analytic.Services.csproj">
+      <Project>{1724b61f-f453-44d7-b359-c9fc402275e1}</Project>
+      <Name>Analytic.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytic.ViewModels\Analytic.ViewModels.csproj">
+      <Project>{0edd0b08-baac-4842-a169-f9994411b81b}</Project>
+      <Name>Analytic.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytic.Views\Analytic.Views.csproj">
+      <Project>{c152dd9d-b0ec-4392-96e9-32906994c35c}</Project>
+      <Name>Analytic.Views</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

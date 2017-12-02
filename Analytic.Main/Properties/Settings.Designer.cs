@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ui.Desktop.Properties
+namespace Analytic.Main.Properties
 {
 
 
