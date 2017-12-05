@@ -9,6 +9,5 @@
              Title="Home">
     <Grid>
         <Label>HOME!</Label>
-        <Button Name="GoCpuBtn" Width="100" Height="20" Command="{Binding Path=GoCpuPageCommand}">Cpu</Button>
     </Grid>
 </Page>

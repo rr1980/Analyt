@@ -27,7 +27,7 @@ namespace Analytic.Views
         {
             InitializeComponent();
             System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
-            DataContext = new HomeViewModel(this);
+            DataContext = new HomeViewModel();
         }
     }
 }

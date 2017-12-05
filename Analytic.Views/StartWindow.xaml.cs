@@ -1,4 +1,5 @@
 ﻿using Analytic.Logic;
+using Analytic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,15 @@ namespace Analytic.Views
     /// <summary>
     /// Interaktionslogik für StartWindow.xaml
     /// </summary>
-    public partial class StartWindow : NavigationWindow
+    public partial class StartWindow : Window
     {
         public StartWindow()
         {
             InitializeComponent();
+
+            var _p = GlobalPageContainer.GetPage("HomePage");
+            this.DataContext = new StartViewModel(_p);
+            _mainFrame.NavigationService.Navigate(_p);
         }
     }
 }

@@ -10,6 +10,5 @@
     <Grid>
         <Label>CPU!</Label>
         <TextBox Text="{Binding TBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,30,10,0" Width="100" />
-        <Button Name="GoHomeBtn" Width="100" Height="20" Command="{Binding Path=GoHomePageCommand}">Home</Button>
     </Grid>
 </Page>
