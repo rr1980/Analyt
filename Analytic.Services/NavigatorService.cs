@@ -10,10 +10,12 @@ namespace Analytic.Services
 {
     public static class NavigatorService
     {
-        public static ObservableCollection<string> Histories = new ObservableCollection<string>();
+        public static List<string> Histories = new List<string>();
+        public static string CurrentPageName { get; private set; }
 
         public static Task<Page> GoPage(Page page, string pageName)
         {
+            CurrentPageName = pageName;
             Mediator.Send("Log", "Execute GoPage: "+ pageName);
             var _p = GlobalPageContainer.GetPage(pageName);
             var _navigationService = NavigationService.GetNavigationService(page);

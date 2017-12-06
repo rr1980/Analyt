@@ -7,18 +7,25 @@
         xmlns:local="clr-namespace:Analytic.Views"
         mc:Ignorable="d"
         Title="StartWindow" Height="400" Width="600" >
+    <Window.Resources>
+        <DataTemplate x:Key="Example4ItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Grid.Row="1" Text="{Binding }" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Row="0" Background="#FF999999">
-            <Button Name="GoHomeBtn" Width="70" Height="20" Command="{Binding Path=GoHomePageCommand}">Home</Button>
-            <Button Name="GoCpuBtn" Width="70" Height="20" Command="{Binding Path=GoCpuPageCommand}">Cpu</Button>
-            <Button Name="TestBtn" Width="70" Height="20" Command="{Binding Path=TestCommand}">Test</Button>
-            <ComboBox  Width="70" ItemsSource="{Binding History}" SelectedItem="{Binding HistorySelectedPage}"/>
-        </WrapPanel>
+        <StackPanel Grid.Row="0" Background="#FF999999" Orientation="Horizontal">
+            <Button Margin="5,5,5,5"  Name="GoHomeBtn" Width="70"  Command="{Binding Path=GoHomePageCommand}">Home</Button>
+            <Button Margin="5,5,5,5"  Name="GoCpuBtn" Width="70"  Command="{Binding Path=GoCpuPageCommand}">Cpu</Button>
+            <Button Margin="5,5,5,5"  Name="TestBtn" Width="70"  Command="{Binding Path=TestCommand}">Test</Button>
+            <ComboBox IsSynchronizedWithCurrentItem="True" IsEditable="True" IsReadOnly="True" Margin="5,5,5,5"  Width="100" ItemsSource="{Binding History,UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding HistorySelectedPage, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
         <DockPanel Grid.Row="1">
             <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>

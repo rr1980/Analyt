@@ -3,30 +3,43 @@ using Analytic.Logic.Mediator;
 using Analytic.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
 namespace Analytic.ViewModels
 {
+    public class ComboBoxItem
+    {
+        public string PageName { get; set; }
+    }
+
     public class StartViewModel : ViewModelBase
     {
-        private static Page _currentPage;
-        public AwaitableDelegateCommand GoHomePageCommand { get; set; } = new AwaitableDelegateCommand(async () => _currentPage = await NavigatorService.GoPage(_currentPage, "HomePage"));
-        public AwaitableDelegateCommand GoCpuPageCommand { get; set; } = new AwaitableDelegateCommand(async () => _currentPage = await NavigatorService.GoPage(_currentPage, "CpuPage"));
-
-        public string HistorySelectedPage
+        private Page _currentPage;
+        public Page CurrentPage
         {
-            get { return null; }
+            get { return _currentPage; }
             set
             {
-                var command = new AwaitableDelegateCommand(async () => _currentPage = await NavigatorService.GoPage(_currentPage, value));
-                command.Execute(null);
+                _currentPage = value;
                 OnPropertyChanged();
             }
         }
+        public AwaitableDelegateCommand GoHomePageCommand { get; set; }
+        public AwaitableDelegateCommand GoCpuPageCommand { get; set; }
 
-        public ObservableCollection<string> History
+        public string HistorySelectedPage
+        {
+            set
+            {
+                var command = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, value));
+                command.Execute(null);
+            }
+        }
+
+        public List<string> History
         {
             get
             {
@@ -37,6 +50,8 @@ namespace Analytic.ViewModels
         public StartViewModel(Page startPage)
         {
             _currentPage = startPage;
+            GoHomePageCommand = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, "HomePage"));
+            GoCpuPageCommand = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, "CpuPage"));
         }
     }
 }
