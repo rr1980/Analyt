@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Analytic.ViewModels
 {
-    public class ViewModelBase
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public bool ThrowOnInvalidPropertyName { get; private set; } = true;
 

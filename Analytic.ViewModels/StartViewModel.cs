@@ -25,10 +25,12 @@ namespace Analytic.ViewModels
             {
                 _currentPage = value;
                 OnPropertyChanged();
+                OnPropertyChanged("History");
             }
         }
         public AwaitableDelegateCommand GoHomePageCommand { get; set; }
         public AwaitableDelegateCommand GoCpuPageCommand { get; set; }
+        public AwaitableDelegateCommand GoProcessPageCommand { get; set; }
 
         public string HistorySelectedPage
         {
@@ -52,6 +54,7 @@ namespace Analytic.ViewModels
             _currentPage = startPage;
             GoHomePageCommand = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, "HomePage"));
             GoCpuPageCommand = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, "CpuPage"));
+            GoProcessPageCommand = new AwaitableDelegateCommand(async () => CurrentPage = await NavigatorService.GoPage(CurrentPage, "ProcessPage"));
         }
     }
 }

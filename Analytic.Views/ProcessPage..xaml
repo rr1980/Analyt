@@ -1,0 +1,28 @@
+﻿<Page x:Class="Analytic.Views.ProcessPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Analytic.Views"
+             mc:Ignorable="d" 
+             Title="Process"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid Background="#FF999999" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Margin="5,5,5,5" Width="70"  Command="{Binding Path=Search_Process_Command}">Search Process</Button>
+        </StackPanel>
+        <ListView Grid.Row="1"  ItemsSource="{Binding Process_Search_Model}" HorizontalAlignment="Left" HorizontalContentAlignment="Left">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Process_Name}" Header="Process Name" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

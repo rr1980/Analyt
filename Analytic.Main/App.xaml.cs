@@ -26,6 +26,7 @@ namespace Analytic.Main
             base.OnStartup(e);
             GlobalPageContainer.AddPage(new HomePage());
             GlobalPageContainer.AddPage(new CpuPage());
+            GlobalPageContainer.AddPage(new ProcessPage());
 
             Mediator.Register("Log", Log);
         }

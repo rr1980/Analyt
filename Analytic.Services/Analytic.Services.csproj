@@ -46,6 +46,7 @@
     <Compile Include="CpuViewModelService.cs" />
     <Compile Include="HomeViewModelService.cs" />
     <Compile Include="NavigatorService.cs" />
+    <Compile Include="ProcessViewModelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

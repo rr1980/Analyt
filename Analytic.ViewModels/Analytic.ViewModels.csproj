@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CpuViewModel.cs" />
     <Compile Include="HomeViewModel.cs" />
+    <Compile Include="ProcessViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
@@ -57,6 +58,10 @@
     <ProjectReference Include="..\Analytic.Logic\Analytic.Logic.csproj">
       <Project>{1873581d-61f5-4a9b-99c6-871a4c59ab2a}</Project>
       <Name>Analytic.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytic.Models\Analytic.Models.csproj">
+      <Project>{D7DF774A-49A8-48B0-8FB7-1AFE48925169}</Project>
+      <Name>Analytic.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Analytic.Services\Analytic.Services.csproj">
       <Project>{1724B61F-F453-44D7-B359-C9FC402275E1}</Project>

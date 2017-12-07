@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="0" Background="#FF999999" Orientation="Horizontal">
             <Button Margin="5,5,5,5"  Name="GoHomeBtn" Width="70"  Command="{Binding Path=GoHomePageCommand}">Home</Button>
             <Button Margin="5,5,5,5"  Name="GoCpuBtn" Width="70"  Command="{Binding Path=GoCpuPageCommand}">Cpu</Button>
-            <Button Margin="5,5,5,5"  Name="TestBtn" Width="70"  Command="{Binding Path=TestCommand}">Test</Button>
+            <Button Margin="5,5,5,5"  Name="GoProcessBtn" Width="70"  Command="{Binding Path=GoProcessPageCommand}">Process</Button>
             <ComboBox IsSynchronizedWithCurrentItem="True" IsEditable="True" IsReadOnly="True" Margin="5,5,5,5"  Width="100" ItemsSource="{Binding History,UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding HistorySelectedPage, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <DockPanel Grid.Row="1">
